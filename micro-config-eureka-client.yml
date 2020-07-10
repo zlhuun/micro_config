@@ -1,0 +1,48 @@
+spring:
+  profiles:
+    active: dev
+
+---
+spring:
+  profiles: dev
+  security:
+    user:
+      name: admin
+      password: 123
+  application:
+    name: microcloud-config-eureka-client
+
+server:
+  port: 8100
+
+eureka:
+  server:
+    eviction-interval-timer-in-ms: 1000 #设置清理的间隔时间，单位是ms默认是60秒
+    enable-self-preservation: false #关闭保护模式
+  client:
+    fetch-registry: false
+    register-with-eureka: false
+    service-url:
+      defaultZone: http://admin:123@127.0.0.1:8100/eureka
+  instance:
+    hostname: 127.0.0.1
+
+
+---
+spring:
+  profiles: beta
+
+server:
+  port: 18100
+
+eureka:
+  server:
+    eviction-interval-timer-in-ms: 1000 #设置清理的间隔时间，单位是ms默认是60秒
+    enable-self-preservation: false #关闭保护模式
+  client:
+    fetch-registry: false
+    register-with-eureka: false
+    service-url:
+      defaultZone: http://admin:123@127.0.0.1:8100/eureka
+  instance:
+    hostname: 127.0.0.1
