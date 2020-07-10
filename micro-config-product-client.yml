@@ -36,7 +36,7 @@ eureka:
     service-url:
       # 指定当前client所要连接的eureka server
       #defaultZone: http://localhost:8000/eureka
-      defaultZone: http://localhost:8100/eureka
+      defaultZone: http://admin:123@localhost:8100/eureka
   instance:
     instance-id: zhulun-provider-8081
 #    hostname: zbc #别轻易写，要么能通过主机名访问才写或者是ip地址，不写就是主机名类似 desktop-itngu5d
