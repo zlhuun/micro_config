@@ -1,0 +1,153 @@
+spring:
+  profiles:
+    active: dev
+
+---
+
+server:
+  port: 8081
+
+spring:
+  profiles: dev
+  #配置spring data jpa
+  jpa:
+    # 指定是否在spring容器启动时创建表，默认false
+    generate-ddl: true
+    # 指定在控制台是否显示sql语句，默认false
+    show-sql: true
+    # 指定应用重启后不重新更新表内容
+    hibernate:
+      ddl-auto: none
+
+  #配置数据源
+  datasource:
+    type: com.alibaba.druid.pool.DruidDataSource
+    driver-class-name: com.mysql.jdbc.Driver
+    url: jdbc:mysql://127.0.0.1:3306/springboot?useUnicode=true&amp;characterEncoding=UTF-8
+    username: root
+    password: 123456
+
+  application:
+    # 指定当前微服务名称
+    name: micro-config-product-client
+
+eureka:
+  client:
+    service-url:
+      # 指定当前client所要连接的eureka server
+      #defaultZone: http://localhost:8000/eureka
+      defaultZone: http://127.0.0.1:8200/eureka,http://localhost:8100/eureka,http://192.168.0.102:8300/eureka
+  instance:
+    instance-id: zhulun-provider-8081
+#    hostname: zbc #别轻易写，要么能通过主机名访问才写或者是ip地址，不写就是主机名类似 desktop-itngu5d
+    ip-address: localhost
+    # 设置当前client每1秒向server发送一次心跳，单位秒
+    lease-renewal-interval-in-seconds: 3
+    # 指定让Server认定当前Client已经失效的时间，将来可以从注册表中剔除了，默认90秒，单位秒
+    lease-expiration-duration-in-seconds: 9
+
+# 配置日志
+logging:
+  pattern:
+    console: level-%level %msg%n
+  level:
+    root: info
+    org.hibernate: info
+    # 在show-sql为true时显示sql中的动态参数值
+    org.hibernate.type.descriptor.sql.BasicBinder: trace
+    # 在show-sql为true时显示查询结果
+    org.hibernate.hql.internal.ast.exec.BasicExecutor: trace
+    com.zhulun.study: debug
+
+info:
+  auth: zhulun
+  app.name: spring-cloud
+  company.name: www.ittx.com.cn
+  server-address: localhost:8081
+
+#Actuator监控管理
+management:
+  #开启所有监控终端
+  endpoints:
+    web:
+      exposure:
+        include: "*"
+  #开启shutdown监控终端
+  endpoint:
+    shutdown:
+      enabled: true
+
+---
+
+server:
+  port: 18081
+
+spring:
+  profiles: beta
+  #配置spring data jpa
+  jpa:
+    # 指定是否在spring容器启动时创建表，默认false
+    generate-ddl: true
+    # 指定在控制台是否显示sql语句，默认false
+    show-sql: true
+    # 指定应用重启后不重新更新表内容
+    hibernate:
+      ddl-auto: none
+
+  #配置数据源
+  datasource:
+    type: com.alibaba.druid.pool.DruidDataSource
+    driver-class-name: com.mysql.jdbc.Driver
+    url: jdbc:mysql://127.0.0.1:3306/springboot?useUnicode=true&amp;characterEncoding=UTF-8
+    username: root
+    password: 123456
+
+  application:
+    # 指定当前微服务名称
+    name: micro-config-product-client
+
+eureka:
+  client:
+    service-url:
+      # 指定当前client所要连接的eureka server
+      #defaultZone: http://localhost:8000/eureka
+      defaultZone: http://127.0.0.1:8200/eureka,http://localhost:8100/eureka,http://192.168.0.102:8300/eureka
+  instance:
+    instance-id: zhulun-provider-8081
+#    hostname: zbc #别轻易写，要么能通过主机名访问才写或者是ip地址，不写就是主机名类似 desktop-itngu5d
+    ip-address: localhost
+    # 设置当前client每1秒向server发送一次心跳，单位秒
+    lease-renewal-interval-in-seconds: 3
+    # 指定让Server认定当前Client已经失效的时间，将来可以从注册表中剔除了，默认90秒，单位秒
+    lease-expiration-duration-in-seconds: 9
+
+# 配置日志
+logging:
+  pattern:
+    console: level-%level %msg%n
+  level:
+    root: info
+    org.hibernate: info
+    # 在show-sql为true时显示sql中的动态参数值
+    org.hibernate.type.descriptor.sql.BasicBinder: trace
+    # 在show-sql为true时显示查询结果
+    org.hibernate.hql.internal.ast.exec.BasicExecutor: trace
+    com.zhulun.study: debug
+
+info:
+  auth: zhulun
+  app.name: spring-cloud
+  company.name: www.ittx.com.cn
+  server-address: localhost:18081
+
+#Actuator监控管理
+management:
+  #开启所有监控终端
+  endpoints:
+    web:
+      exposure:
+        include: "*"
+  #开启shutdown监控终端
+  endpoint:
+    shutdown:
+      enabled: true
