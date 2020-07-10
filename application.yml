@@ -1,0 +1,16 @@
+spring:
+  profiles:
+    active: dev
+
+---
+
+spring:
+  profiles: dev
+  application:
+    name: micro-config-dev
+
+---
+spring:
+  profiles: default
+  application:
+    name: micro-config-default
