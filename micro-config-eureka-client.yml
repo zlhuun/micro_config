@@ -32,11 +32,11 @@ eureka:
 spring:
   profiles: beta
   security:
-      user:
-        name: admin
-        password: 123
-    application:
-      name: microcloud-config-eureka-client
+    user:
+      name: admin
+      password: 123
+  application:
+    name: microcloud-config-eureka-client
 
 server:
   port: 18100
