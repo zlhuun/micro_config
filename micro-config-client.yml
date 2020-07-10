@@ -10,7 +10,7 @@ spring:
     name: microcloud-config-client-dev
 eureka:
   client:
-    serivce-url:
+    service-url:
       defaultZone: http://127.0.0.1:8200/eureka,http://localhost:8100/eureka,http://192.168.0.102:8300/eureka
 ---
 server:
@@ -21,5 +21,5 @@ spring:
     name: microcloud-config-client-beta
 eureka:
   client:
-    serivce-url:
+    service-url:
       defaultZone: http://127.0.0.1:8200/eureka,http://localhost:8100/eureka,http://192.168.0.102:8300/eureka
