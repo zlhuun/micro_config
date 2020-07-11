@@ -29,5 +29,5 @@ eureka:
       defaultZone: http://127.0.0.1:8200/eureka,http://localhost:8100/eureka,http://192.168.0.102:8300/eureka
 info:
   app:
-    name: zhulun-beta
+    name: zhulun-beta-test-bus
     company: none
