@@ -31,3 +31,8 @@ info:
   app:
     name: zhulun-beta-test-bus
     company: none
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
